@@ -99,11 +99,14 @@ namespace veritas
         /** Add multi-class copies of the trees in `other` to this ensemble. */
         void add_trees(const GAddTree<TreeT>& other, int c);
 
-        /** Turn this ensemble in a multi-class ensemble. See `GTree::make_multiclass`. */
-        GAddTree<TreeT> make_multiclass(int c, int num_leaf_values) const;
+    /** Turn this multiclass ensemble in a binary ensemble. See `GTree::make_singleclass`. */
+    GAddTree<TreeT> make_singleclass(int c) const;
 
-        /** Turn this ensemble in a single-class ensemble. See `GTree::make_singleclass`. */
-        GAddTree<TreeT> make_singleclass(int c) const;
+    /** Turn this multiclass ensemble in a binary ensemble. See `GTree::contrast_classes`. */
+    GAddTree<TreeT> contrast_classes(int pos_c, int neg_c) const;
+
+    /** See GTree::swap_class */
+    void swap_class(int c);
 
         /** See GTree::swap_class */
         void swap_class(int c);
