@@ -1,0 +1,41 @@
+﻿src.python.veritas.veritas\_core.Search
+=======================================
+
+.. currentmodule:: src.python.veritas.veritas_core
+
+
+
+.. rubric:: Methods
+
+
+.. autosummary::
+   
+      ~Search.__init__
+      ~Search.current_bounds
+      ~Search.get_max_memory
+      ~Search.get_solution
+      ~Search.get_solution_nodes
+      ~Search.get_used_memory
+      ~Search.is_optimal
+      ~Search.num_open
+      ~Search.num_solutions
+      ~Search.set_max_memory
+      ~Search.step
+      ~Search.step_for
+      ~Search.steps
+      ~Search.time_since_start   
+   
+
+
+
+.. rubric:: Attributes
+
+.. autosummary::
+
+   ~Search.config
+   ~Search.stats
+
+
+
+.. autoclass:: Search
+   :members:

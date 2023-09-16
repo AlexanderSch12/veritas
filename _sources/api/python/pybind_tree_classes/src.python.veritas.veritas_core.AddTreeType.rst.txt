@@ -1,0 +1,35 @@
+﻿src.python.veritas.veritas\_core.AddTreeType
+============================================
+
+.. currentmodule:: src.python.veritas.veritas_core
+
+
+
+.. rubric:: Methods
+
+
+.. autosummary::
+   
+      ~AddTreeType.__init__   
+   
+
+
+
+.. rubric:: Attributes
+
+.. autosummary::
+
+   ~AddTreeType.GB_CLF
+   ~AddTreeType.GB_MULTI
+   ~AddTreeType.GB_REGR
+   ~AddTreeType.RAW
+   ~AddTreeType.RF_CLF
+   ~AddTreeType.RF_MULTI
+   ~AddTreeType.RF_REGR
+   ~AddTreeType.name
+   ~AddTreeType.value
+
+
+
+.. autoclass:: AddTreeType
+   :members:

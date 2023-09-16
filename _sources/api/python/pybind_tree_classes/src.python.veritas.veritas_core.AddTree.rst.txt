@@ -1,0 +1,45 @@
+﻿src.python.veritas.veritas\_core.AddTree
+========================================
+
+.. currentmodule:: src.python.veritas.veritas_core
+
+
+
+.. rubric:: Methods
+
+
+.. autosummary::
+   
+      ~AddTree.__init__
+      ~AddTree.add_tree
+      ~AddTree.add_trees
+      ~AddTree.compute_box
+      ~AddTree.concat_negated
+      ~AddTree.copy
+      ~AddTree.eval
+      ~AddTree.from_json
+      ~AddTree.from_oldjson
+      ~AddTree.get_base_score
+      ~AddTree.get_splits
+      ~AddTree.make_multiclass
+      ~AddTree.make_singleclass
+      ~AddTree.negate_leaf_values
+      ~AddTree.neutralize_negative_leaf_values
+      ~AddTree.num_leaf_values
+      ~AddTree.num_leafs
+      ~AddTree.num_nodes
+      ~AddTree.predict
+      ~AddTree.prune
+      ~AddTree.read
+      ~AddTree.set_base_score
+      ~AddTree.swap_class
+      ~AddTree.to_json
+      ~AddTree.write   
+   
+
+
+
+
+
+.. autoclass:: AddTree
+   :members:

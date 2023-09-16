@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python Examples &mdash; Veritas  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Veritas
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Usage:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/index.html">C++</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Veritas</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Python Examples</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/api/python/python_examples_template.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="python-examples">
+<h1>Python Examples<a class="headerlink" href="#python-examples" title="Link to this heading"></a></h1>
+<section id="constructing-an-additive-tree-ensemble-or-addtree">
+<h2>Constructing an Additive Tree Ensemble or <cite>AddTree</cite><a class="headerlink" href="#constructing-an-additive-tree-ensemble-or-addtree" title="Link to this heading"></a></h2>
+<p>Veritas uses its own tree ensemble representation. You can manually build one to try Veritas out.</p>
+<p>Here’s an example of a manually constructed tree ensemble.
+(To execute this code, see <cite>tests/test_readme.py</cite>.)</p>
+<p>!code PART example_at!</p>
+<p>This outputs the following. Note that the Boolean split on feature 2 is replaced with a less than split splitting on value 0.5 (<code class="docutils literal notranslate"><span class="pre">veritas.BOOL_SPLIT_VALUE</span></code>). You can use the pre-defined domains for <cite>TRUE</cite> and <cite>FALSE</cite>: <code class="docutils literal notranslate"><span class="pre">veritas.TRUE_DOMAIN</span></code> and <code class="docutils literal notranslate"><span class="pre">veritas.FALSE_DOMAIN</span></code>.</p>
+<p>!output PART example_at!</p>
+</section>
+<section id="model-conversion-using-xgboost">
+<h2>Model Conversion using XGBoost<a class="headerlink" href="#model-conversion-using-xgboost" title="Link to this heading"></a></h2>
+<p>You can also convert an existing ensemble using the <code class="docutils literal notranslate"><span class="pre">get_addtree</span></code> function for XGBoost, LightGBM and scikit-learn.</p>
+<p>Here’s an example of a model trained by XGBoost that has been converted to Veritas’ own tree ensemble representation.</p>
+<p>!code PART get_addtree_example!</p>
+<p>The output is an AddTree consisting of 3 trees, as was defined in the XGBClassifier.</p>
+<p>!output PART get_addtree_example!</p>
+</section>
+<section id="model-conversion-implementation">
+<h2>Model Conversion implementation<a class="headerlink" href="#model-conversion-implementation" title="Link to this heading"></a></h2>
+<p>Converting representations of other learners or your own models should be easy and can be done by implementing the class <code class="docutils literal notranslate"><span class="pre">AddTreeConverter</span></code>.
+In the following example <code class="docutils literal notranslate"><span class="pre">MyAddTreeConverter</span></code> implements the <code class="docutils literal notranslate"><span class="pre">get_addtree</span></code> method from <code class="docutils literal notranslate"><span class="pre">AddTreeConverter</span></code> for a trivial tree representation. The trees consist of a boolean split in the root with only 2 leaves. After adding an instance of <code class="docutils literal notranslate"><span class="pre">MyAddTreeConverter</span></code> to the convertermanager, the same method <code class="docutils literal notranslate"><span class="pre">get_addtree</span></code> that was used in the previous example can be used for the new model representation aswell as the previously methoned ones.</p>
+<p>!code PART AddTreeConverter!</p>
+<p>This has the expected output:</p>
+<p>!output PART AddTreeConverter!</p>
+</section>
+<section id="finding-the-global-maximum-of-the-ensemble">
+<h2>Finding the Global Maximum of the Ensemble<a class="headerlink" href="#finding-the-global-maximum-of-the-ensemble" title="Link to this heading"></a></h2>
+<p>We can use Veritas to find the feature values for which the model’s output is maximal as follows.</p>
+<p>!code PART max_output!</p>
+<p>!output PART max_output!</p>
+<p>The solutions generated by <code class="docutils literal notranslate"><span class="pre">Search</span></code> are accessible using <code class="docutils literal notranslate"><span class="pre">get_solution</span></code>. The solutions are sorted descendingly: the best solution is at index 0, the worst solution is at index <code class="docutils literal notranslate"><span class="pre">s.num_solutions()-1</span></code>.</p>
+<p>A best solution at index 0 is optimal when <code class="docutils literal notranslate"><span class="pre">s.is_optimal()</span></code> returns true. To know when the solution was generated, <code class="docutils literal notranslate"><span class="pre">sol.time</span></code> contains the number of seconds since the construction of the <code class="docutils literal notranslate"><span class="pre">Search</span></code> object.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">sol.box()</span></code> method returns the value intervals of the features for which the output of the ensemble is unchanged. That is, for each possible assignment within the intervals, the trees always evaluate to the same leaf node (<code class="docutils literal notranslate"><span class="pre">s.get_solution_nodes</span></code>), and thus to the same output value. If a feature is missing from the box, it means that its value does not make a difference.</p>
+</section>
+<section id="constrained-minimization">
+<h2>Constrained Minimization<a class="headerlink" href="#constrained-minimization" title="Link to this heading"></a></h2>
+<p>In this example, we constrain the first feature value to be between 3 and 5.
+Because this is a very simple constraint, we can simply prune the search space before we start the search.</p>
+<p>Although the constraint is simple, it is very useful. The exact same pruning strategy is used for l-infinity robustenss checking.</p>
+<p>!code PART min_output_constrained!</p>
+<p>!output PART min_output_constrained!</p>
+<p>We minimize by maximizing the negated ensemble, i.e., the ensemble where all leaf values are negated.</p>
+<p>The pruning simply removes all leaf nodes with boxes that do not overlap with <code class="docutils literal notranslate"><span class="pre">prune_box</span></code> from the search.</p>
+</section>
+<section id="contrasting-two-instances">
+<h2>Contrasting Two Instances<a class="headerlink" href="#contrasting-two-instances" title="Link to this heading"></a></h2>
+<p>In this example, we want to know what the maximum difference between the outputs of two instances can be when only the third feature is different, and first and second feature values are the same.</p>
+<p>We achieve this by renaming the feature IDs in one of the trees using a feature map or <code class="docutils literal notranslate"><span class="pre">FeatMap</span></code> object.</p>
+<p>!code PART featmap!</p>
+<p>!output PART featmap!</p>
+<p>There are two differences between tree 1 and tree 3:</p>
+<ul class="simple">
+<li><p>the leaf values are negated (<code class="docutils literal notranslate"><span class="pre">concat_negated</span></code>)</p></li>
+<li><p>internal node 6 uses feature ID 2 in tree 1 and feature ID 5 in tree 3</p></li>
+</ul>
+<p>The other feature IDs are the same. This has the effect of allowing the first two trees (corresponding to the first instance) to take on different values for feature 3 than the last two trees (corresponding to the second instance).</p>
+<p>The renaming of the feature IDs is fascilitated by the <code class="docutils literal notranslate"><span class="pre">FeatMap</span></code> object.</p>
+<p>!code PART print_featmap!</p>
+<p>!output PART print_featmap!</p>
+<p>The above gives all IDs used by the two instances. <code class="docutils literal notranslate"><span class="pre">FeatMap::share_all_features_between_instances</span></code> can be used share all feature values between the two intances. By default, each ID is unique.
+Use <code class="docutils literal notranslate"><span class="pre">FeatMap::use_same_id_for</span></code> to share the same ID for two features, either between two instances, or for the same instance.
+Use <code class="docutils literal notranslate"><span class="pre">FeatMap::transform</span></code> to apply the changes to an <code class="docutils literal notranslate"><span class="pre">AddTree</span></code>.</p>
+<p>We can find the maximum difference between the outputs of the first and the second instance as follows:</p>
+<p>!code PART two_instances!</p>
+<p>!output PART two_instances!</p>
+<p>The maximum output difference in this case is 10. The only possible variation is between leaf nodes 7 or 8 in the second tree.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">Search::step_for(duration_in_seconds,</span> <span class="pre">num_steps)</span></code> to let the search run for the given duration. Per <code class="docutils literal notranslate"><span class="pre">num_steps</span></code> steps, a snapshot is added to <code class="docutils literal notranslate"><span class="pre">Search::snapshots</span></code>. This can be used to track the following stats:</p>
+<ul class="simple">
+<li><p>time (<code class="docutils literal notranslate"><span class="pre">time</span></code>)</p></li>
+<li><p>number of steps executed so far (<code class="docutils literal notranslate"><span class="pre">num_steps</span></code>)</p></li>
+<li><p>number of solutions so far (<code class="docutils literal notranslate"><span class="pre">num_solutions</span></code>)</p></li>
+<li><p>number of search states expanded so far (<code class="docutils literal notranslate"><span class="pre">num_states</span></code>)</p></li>
+<li><p>best epsilon value (<code class="docutils literal notranslate"><span class="pre">eps</span></code>)</p></li>
+<li><p>the best bounds so far (<code class="docutils literal notranslate"><span class="pre">bounds</span></code>), a tuple containing lower bound, A* upper bound, and ARA* upper bound</p></li>
+</ul>
+</section>
+<section id="checking-robustness">
+<h2>Checking Robustness<a class="headerlink" href="#checking-robustness" title="Link to this heading"></a></h2>
+<p>Before we check the robustness of a particular example, we’ll first use Veritas to enumerate all possible output configurations of the additive tree ensemble. To do this, we simply run the search until <code class="docutils literal notranslate"><span class="pre">Search::steps</span></code> returns false, indicating that all search states have been visited.</p>
+<p>!code PART robustness0!</p>
+<p>!output PART robustness0!</p>
+<p>The boxes above partition the input space. Remember that when a feature is not present in a box, it does not have an effect given the other feature values and can take on any value.</p>
+<p>We will pick an example from box 6 with output -9:</p>
+<p>!code PART robustness0_eval!</p>
+<p>!output PART robustness0_eval!</p>
+<p>We now try to find the distance to the closest adversarial example for which the output of the model is positive. We use <code class="docutils literal notranslate"><span class="pre">VeritasRobustnessSearch</span></code> for this. The arguments are:</p>
+<ul class="simple">
+<li><p>model to minimize or None</p></li>
+<li><p>model to maximize or None (use both for targeted attacks)</p></li>
+<li><p>the example</p></li>
+<li><p>the initial delta value used by the binary search</p></li>
+</ul>
+<p>!code PART robustness1!</p>
+<p>!output PART robustness1!</p>
+<p>We can verify this result using the MILP approach (Kantchelian et al.’16):</p>
+<p>!code PART robustness1_kan!</p>
+<p>!output PART robustness1_kan LINES 1:2!</p>
+<p>MILP indeed finds the same solution.</p>
+</section>
+<section id="one-hot-constraint">
+<h2>One-hot constraint<a class="headerlink" href="#one-hot-constraint" title="Link to this heading"></a></h2>
+<p>We can tell Veritas that some of the features are the results of a one-hot encoded categorical feature using <code class="docutils literal notranslate"><span class="pre">Search::add_onehot_constraint</span></code>. This ensures that exactly one of the features is true at all times.</p>
+<p>For this constructed example with only two one-hot encoded features, the total number of solutions is four, but two of them are invalid:</p>
+<p>!code PART onehot0!</p>
+<p>!output PART onehot0!</p>
+<p>When we inform Veritas that exactly one of the two features must be true:</p>
+<p>!code PART onehot1!</p>
+<p>!output PART onehot1!</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Laurens Devos.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

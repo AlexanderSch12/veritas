@@ -1,0 +1,29 @@
+﻿src.python.veritas.veritas\_core.Solution
+=========================================
+
+.. currentmodule:: src.python.veritas.veritas_core
+
+
+
+.. rubric:: Methods
+
+
+.. autosummary::
+   
+      ~Solution.__init__
+      ~Solution.box   
+   
+
+
+
+.. rubric:: Attributes
+
+.. autosummary::
+
+   ~Solution.output
+   ~Solution.time
+
+
+
+.. autoclass:: Solution
+   :members:

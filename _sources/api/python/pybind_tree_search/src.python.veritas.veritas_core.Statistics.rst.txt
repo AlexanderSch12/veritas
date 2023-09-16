@@ -1,0 +1,28 @@
+﻿src.python.veritas.veritas\_core.Statistics
+===========================================
+
+.. currentmodule:: src.python.veritas.veritas_core
+
+
+
+.. rubric:: Methods
+
+
+.. autosummary::
+   
+      ~Statistics.__init__   
+   
+
+
+
+.. rubric:: Attributes
+
+.. autosummary::
+
+   ~Statistics.num_states_ignored
+   ~Statistics.num_steps
+
+
+
+.. autoclass:: Statistics
+   :members:
