@@ -160,7 +160,7 @@
 <dd><p>AddTreeConverter Base Interface</p>
 <p>Interface that gives the opportunity to implement a conversion from one’s own model to Veritas’ represention of tree ensembles.
 The function to implement is <code class="docutils literal notranslate"><span class="pre">get_addtree(model)</span></code>. The converter then needs to be added to the convertermanager using <code class="docutils literal notranslate"><span class="pre">add_addtree_converter()</span></code>.
-For an example see: ######</p>
+For an example see <a class="reference internal" href="python_examples.html#model-conversion-implementation"><span class="std std-ref">Model Conversion implementation</span></a>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="src.python.veritas.addtree_converter.AddTreeConverter.get_addtree">
 <span class="sig-name descname"><span class="pre">get_addtree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.python.veritas.addtree_converter.AddTreeConverter.get_addtree" title="Link to this definition"></a></dt>
@@ -190,7 +190,7 @@ For an example see: ######</p>
 <span class="sig-name descname"><span class="pre">get_addtree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.python.veritas.converter_manager.get_addtree" title="Link to this definition"></a></dt>
 <dd><p>Returns a veritas Addtree equivalent to the given model.</p>
 <p>This works seamlessly on every model where there is an implementation for the class <cite>AddTreeConverter</cite>. 
-Currently XGBoost, LightGBM and scikit-learn are supported. For an example see: ######
+Currently XGBoost, LightGBM and scikit-learn are supported. For an example see <a class="reference internal" href="python_examples.html#model-conversion-implementation"><span class="std std-ref">Model Conversion implementation</span></a>.
 You can always implement your own model using the <cite>AddTreeConverter</cite> interface.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
