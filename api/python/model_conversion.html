@@ -57,6 +57,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#src.python.veritas.addtree_converter.AddTreeConverter.get_addtree"><code class="docutils literal notranslate"><span class="pre">AddTreeConverter.get_addtree()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#src.python.veritas.converter_manager.ConversionException"><code class="docutils literal notranslate"><span class="pre">ConversionException</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#src.python.veritas.converter_manager.add_addtree_converter"><code class="docutils literal notranslate"><span class="pre">add_addtree_converter()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#src.python.veritas.converter_manager.get_addtree"><code class="docutils literal notranslate"><span class="pre">get_addtree()</span></code></a></li>
 </ul>
@@ -110,7 +111,13 @@ For an example see <a class="reference internal" href="../../usage/custom_trees.
 
 </dd></dl>
 
-<dl class="py function" id="module-src.python.veritas.converter_manager">
+<dl class="py exception" id="module-src.python.veritas.converter_manager">
+<dt class="sig sig-object py" id="src.python.veritas.converter_manager.ConversionException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConversionException</span></span><a class="reference internal" href="../../_modules/src/python/veritas/converter_manager.html#ConversionException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.python.veritas.converter_manager.ConversionException" title="Link to this definition"></a></dt>
+<dd><p>No conversion is possbible. Either install XGBoost, SkLearn, LightGBM or add your own converter.</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="src.python.veritas.converter_manager.add_addtree_converter">
 <span class="sig-name descname"><span class="pre">add_addtree_converter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">converter</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/src/python/veritas/converter_manager.html#add_addtree_converter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.python.veritas.converter_manager.add_addtree_converter" title="Link to this definition"></a></dt>
 <dd><p>Adds an instance of AddTreeConverter to the <cite>converter_manager</cite>. The <cite>get_addtree</cite> function will now also use the added converter.</p>

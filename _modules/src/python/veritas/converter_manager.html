@@ -97,8 +97,14 @@
         <span class="k">for</span> <span class="n">converter</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_converters</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">converter</span><span class="o">.</span><span class="n">get_addtree</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
-            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="k">except</span><span class="p">:</span>
                 <span class="k">pass</span>
+        <span class="k">raise</span> <span class="n">ConversionException</span><span class="p">(</span><span class="s2">&quot;No conversion possible. Implement a converter using `AddTreeConverter` and add it using `add_addtree_converter`.&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ConversionException">
+<a class="viewcode-back" href="../../../../api/python/model_conversion.html#src.python.veritas.converter_manager.ConversionException">[docs]</a>
+<span class="k">class</span> <span class="nc">ConversionException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;No conversion is possbible. Either install XGBoost, SkLearn, LightGBM or add your own converter.&quot;&quot;&quot;</span></div>
 
 
 <span class="n">_conv_manager</span> <span class="o">=</span> <span class="n">ConverterManager</span><span class="p">()</span>
