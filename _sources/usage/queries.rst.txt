@@ -6,6 +6,8 @@ First, we will train a model on a small dataset and get the corresponding AddTre
 .. code-block:: sh
 	:caption: Output
 
+	AddTree with 2 trees and base_scores [0]
+	
 	Node(id=0, split=[F0 < 2], sz=7, left=1, right=2)
 	├─ Node(id=1, split=[F0 < 1], sz=3, left=3, right=4)
 	│  ├─ Leaf(id=3, sz=1, value=[3])
